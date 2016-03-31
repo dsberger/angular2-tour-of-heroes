@@ -6,11 +6,11 @@ import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
 
 @Component({
-    selector: 'my-heroes',
-    templateUrl: 'public/heroes.component.html',
-    styleUrls: ['styles/heroes.component.css'],
-    directives: [HeroDetailComponent]
-  })
+  selector: 'my-heroes',
+  templateUrl: 'public/heroes.component.html',
+  styleUrls: ['styles/heroes.component.css'],
+  directives: [HeroDetailComponent]
+})
 
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
@@ -20,17 +20,17 @@ export class HeroesComponent implements OnInit {
     private _router: Router,
     private _heroService: HeroService) {}
 
-  getHeroes(){
-    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
-  }
+    getHeroes(){
+      this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+    }
 
-  ngOnInit() {
-    this.getHeroes();
-  }
+    ngOnInit() {
+      this.getHeroes();
+    }
 
-  onSelect(hero: Hero) { this.selectedHero = hero; }
+    onSelect(hero: Hero) { this.selectedHero = hero; }
 
-  gotoDetail(){
-    this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
-  }
+    gotoDetail(){
+      this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+    }
 }
